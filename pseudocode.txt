@@ -1,0 +1,17 @@
+first dedup across catalogue on SKU
+
+merge both, add source catalogue column
+then check for duplicate SKU -> remove
+
+now iterate through list ; push one on another list [SKU_singletons] ; keep record of SKU
+
+for item 2 ; 
+
+then check for SKU of same barcode
+-> check if one SKU matches another SKU - having same barcode -> remove
+=>> to do ; mapping of barcodes to sku
+
+
+get barcode of SKU ; check if another sku has same barcode ; compare barcode of SKU_singletons with current SKU's barcode 
+-> if match ; skip
+-> if no match ; then add to list
