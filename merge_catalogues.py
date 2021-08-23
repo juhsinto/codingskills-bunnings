@@ -1,4 +1,5 @@
-import pandas as pd 
+import pandas as pd
+import warnings
 
 # read the catalogues
 cat_A = pd.read_csv("input/catalogA.csv") 
@@ -26,7 +27,7 @@ if len(itermediate_merged_catalogues) != 0:
     SKU_lookup_list.append(temp_SKU)
 
 
-def getBarcodes(intermediate_merged_catalogue, sku):
+def getBarcodes(sku):
     result_A = bar_A[bar_A['SKU'] == sku]
     if (len(result_A))>0:
         return result_A
@@ -34,7 +35,7 @@ def getBarcodes(intermediate_merged_catalogue, sku):
     if (len(result_B))>0:
         return result_B
     else:
-        print("No barcode found for SKU!")
+        warnings.warn("No barcode found for SKU!", UserWarning)
 
 
 def barcode_exists(barcodes_of_next_sku_as_list, barcodes_of_temp_list):
@@ -49,14 +50,14 @@ for i in range(1, len(itermediate_merged_catalogues)):
     next_sku = itermediate_merged_catalogues.iloc[i]['SKU']
 
     # get barcodes of the next SKU
-    barcodes_of_next_sku = getBarcodes(itermediate_merged_catalogues, next_sku)
+    barcodes_of_next_sku = getBarcodes(next_sku)
 
     # hold set of barcodes for all SKUs in temp_list
     barcodes_of_temp_list = []
     
     # get the barcodes of each SKU in temp_list
     for sku in SKU_lookup_list:
-        barcodes_of_sku = getBarcodes(itermediate_merged_catalogues, sku)
+        barcodes_of_sku = getBarcodes(sku)
         barcodes_as_list = barcodes_of_sku['Barcode'].tolist()
         
         # extend - copies content of list (supplied in arg) to the source list
