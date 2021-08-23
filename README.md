@@ -19,7 +19,8 @@ On successful execution, an output file called 'output.csv' will be generated in
 I found that the order of the 'products' seems to differ just slightly, I'm hoping that this isn't a problem.
 
 ## Tests
-
+In order to run the tests, I used unittest
+This can be tested via `python -m unittest test_merge_catalogues.TestMergeCatalogues`
 
 ## Additional Information
 
