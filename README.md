@@ -1,6 +1,6 @@
 # Coding Skills Challenge - Solution
 
-I have attempted this code challenge using Python
+I have attempted [this](https://github.com/tosumitagrawal/codingskills) code challenge using Python
 
 ### Pre-requisites:
 In order to run the solution, the user must have python 3 installed on their machine, and the library pandas installed as well.
